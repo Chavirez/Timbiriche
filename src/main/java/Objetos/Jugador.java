@@ -44,6 +44,4 @@ public class Jugador {
         this.color = color;
     }
     
-    
-    
 }

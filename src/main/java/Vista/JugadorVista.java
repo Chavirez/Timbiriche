@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Frames.pnlJugadorConfiguracion;
 import Modelo.*;
 import Objetos.Jugador;
 import javax.swing.JOptionPane;
@@ -17,14 +18,19 @@ public class JugadorVista extends javax.swing.JPanel {
     /**
      * Creates new form pnlJugador
      */
-    public JugadorVista() {
+    public JugadorVista(Jugador jugador) {
+        
         initComponents();
-        this.setSize(400, 100);
-        lblAvatar.setVisible(false);
-        lblNombre.setVisible(false);
-        pnlColor.setVisible(false);
+        
+        lblAvatar.setIcon(jugador.getAvatar());
+
+        lblNombre.setText(jugador.getNombre());
+
+        pnlColor.setBackground(jugador.getColor());
+ 
     }
 
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,17 +40,9 @@ public class JugadorVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCrear = new javax.swing.JButton();
         lblAvatar = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         pnlColor = new javax.swing.JPanel();
-
-        btnCrear.setText("Crear Jugador");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
-            }
-        });
 
         lblNombre.setText("jLabel1");
 
@@ -66,13 +64,9 @@ public class JugadorVista extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrear)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(lblNombre)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(57, 57, 57)
+                .addComponent(lblNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(pnlColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
         );
@@ -82,48 +76,16 @@ public class JugadorVista extends javax.swing.JPanel {
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnlColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnCrear)
-                        .addComponent(lblNombre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addGap(7, 7, 7))
                     .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
-        pnlJugadorConfiguracion panel = new pnlJugadorConfiguracion();
-       
-
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                panel,
-                "Configurar Jugador",
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.PLAIN_MESSAGE
-        );
-
-        if (result == JOptionPane.OK_OPTION) {
-            Jugador jugador = panel.getJugador();
-            System.out.println("Jugador configurado: " + jugador);
-            
-            btnCrear.setVisible(false);
-            
-            lblAvatar.setIcon(jugador.getAvatar());
-            lblAvatar.setVisible(true);
-            lblNombre.setText(jugador.getNombre());
-            lblNombre.setVisible(true);
-            pnlColor.setBackground(jugador.getColor());
-            pnlColor.setVisible(true);
-            
-            
-        }
-
-    }//GEN-LAST:event_btnCrearActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrear;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JPanel pnlColor;

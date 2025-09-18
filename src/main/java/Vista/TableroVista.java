@@ -4,7 +4,6 @@
  */
 package Vista;
 
-import Modelo.pnlJugador;
 import Vista.CuadroVista;
 import java.awt.GridLayout;
 import java.util.ArrayList;

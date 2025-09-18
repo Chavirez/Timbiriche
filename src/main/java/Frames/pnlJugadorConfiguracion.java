@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo;
+package Frames;
 
+import Modelo.GaleriaImagenes;
 import Objetos.Jugador;
 import java.awt.Color;
 
@@ -13,7 +14,6 @@ public class pnlJugadorConfiguracion extends javax.swing.JPanel {
 
     public pnlJugadorConfiguracion() {
         initComponents();
-        this.setSize(1000, 1000);
         inicializarGaleria();
     }
 

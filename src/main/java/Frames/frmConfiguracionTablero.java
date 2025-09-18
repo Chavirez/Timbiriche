@@ -4,8 +4,13 @@
  */
 package Frames;
 
+import Controlador.JugadorControlador;
+import Modelo.JugadorModelo;
+import Objetos.Jugador;
 import Vista.CuadroVista;
+import Vista.JugadorVista;
 import java.awt.GridLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,13 +18,20 @@ import java.awt.GridLayout;
  */
 public class frmConfiguracionTablero extends javax.swing.JFrame {
 
+    private JugadorControlador jCon;
     /**
      * Creates new form frmConfiguracionTablero
      */
     public frmConfiguracionTablero() {
         initComponents();
+        inicializarControladores();
     }
 
+    public void inicializarControladores(){
+    
+        this.jCon = new JugadorControlador();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,18 +69,18 @@ public class frmConfiguracionTablero extends javax.swing.JFrame {
         pnlOpcionesLayout.setHorizontalGroup(
             pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOpcionesLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(34, 34, 34)
                 .addComponent(jButton1)
                 .addGap(29, 29, 29)
                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(btnAñadirUser)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         pnlOpcionesLayout.setVerticalGroup(
             pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOpcionesLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(19, 19, 19)
                 .addGroup(pnlOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -76,26 +88,7 @@ public class frmConfiguracionTablero extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(pnlOpciones, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -103,6 +96,30 @@ public class frmConfiguracionTablero extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
+        pnlJugadorConfiguracion panel = new pnlJugadorConfiguracion();
+       
+
+        int result = JOptionPane.showConfirmDialog(
+                null,
+                panel,
+                "Configurar Jugador",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            
+            Jugador jugador = panel.getJugador();
+            JugadorModelo jMod = new JugadorModelo();
+            jMod.agregarJugador(jugador);
+
+            JugadorVista jVista = new JugadorVista(jugador);
+            
+            jCon.setModelo(jMod);
+            jCon.agregarVista(jVista);
+            
+        }
+        
 //        pnlJuego.removeAll();
 //
 //        int cant = 100;
@@ -138,21 +155,20 @@ public class frmConfiguracionTablero extends javax.swing.JFrame {
     private void btnAñadirUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirUserActionPerformed
         // TODO add your handling code here:
 
-//        pnlJugador j1 = new pnlJugador();
-//        pnlJugador j2 = new pnlJugador();
-//        pnlJugador j3 = new pnlJugador();
-//        pnlJugador j4 = new pnlJugador();
-//
-//        pnlJugadores.add(j1);
-//        pnlJugadores.add(j2);
-//        pnlJugadores.add(j3);
-//        pnlJugadores.add(j4);
-//
-//        System.out.println("no entiendo");
-//
-//        pnlJugadores.revalidate();
-//        pnlJugadores.repaint();
-
+        //        pnlJugador j1 = new pnlJugador();
+        //        pnlJugador j2 = new pnlJugador();
+        //        pnlJugador j3 = new pnlJugador();
+        //        pnlJugador j4 = new pnlJugador();
+        //
+        //        pnlJugadores.add(j1);
+        //        pnlJugadores.add(j2);
+        //        pnlJugadores.add(j3);
+        //        pnlJugadores.add(j4);
+        //
+        //        System.out.println("no entiendo");
+        //
+        //        pnlJugadores.revalidate();
+        //        pnlJugadores.repaint();
     }//GEN-LAST:event_btnAñadirUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

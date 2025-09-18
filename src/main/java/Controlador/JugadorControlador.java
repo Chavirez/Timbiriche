@@ -7,6 +7,7 @@ package Controlador;
 import Modelo.Interfaces.JugadorListener;
 import Modelo.JugadorModelo;
 import Vista.JugadorVista;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,6 +35,31 @@ public class JugadorControlador {
         this.modelo = modelo;
     }
 
+    public List<JugadorVista> getVistas() {
+        return vistas;
+    }
+
+    public void setVistas(List<JugadorVista> vistas) {
+        this.vistas = vistas;
+    }
+
+    public void agregarVista(JugadorVista vista){
+    
+        if(this.vistas != null){
+            vistas.add(vista);        
+        }
+        
+        else{
+            vistas = new ArrayList<>();
+            vistas.add(vista);
+        }
+        
+    }
+
+    @Override
+    public String toString() {
+        return "JugadorControlador{" + "modelo=" + modelo + ", vistas=" + vistas + '}';
+    }
     
     
 }

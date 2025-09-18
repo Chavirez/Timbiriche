@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.timbiricheatt;
+package Vista;
 
+import Modelo.pnlJugador;
+import Vista.CuadroVista;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +14,12 @@ import java.util.List;
  *
  * @author santi
  */
-public class pruebas extends javax.swing.JFrame {
+public class TableroVista extends javax.swing.JFrame {
 
     /**
      * Creates new form pruebas
      */
-    public pruebas() {
+    public TableroVista() {
         initComponents();
         this.setSize(1500, 1000);
        
@@ -103,20 +106,26 @@ public class pruebas extends javax.swing.JFrame {
         
         int cant = 100;
         
+        if((int)jSpinner1.getValue() == 10){
+            pnlJuego.setLayout(new GridLayout(10, 10));
+            
+            
+        }
         if((int)jSpinner1.getValue() == 20){
-        
+            pnlJuego.setLayout(new GridLayout(20, 20));
             cant = 400;
             
         }
         
         if((int)jSpinner1.getValue() == 30){
-        
+            pnlJuego.setLayout(new GridLayout(30, 30));
+            cant = 400;
             cant = 900;
             
         }
         for(int i = 1; i <= cant; i++){
         
-            Cuadro cuadro = new Cuadro(i);
+            CuadroVista cuadro = new CuadroVista(i);
             pnlJuego.add(cuadro);
             
         }
@@ -149,40 +158,6 @@ public class pruebas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAñadirUserActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pruebas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pruebas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pruebas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pruebas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new pruebas().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadirUser;

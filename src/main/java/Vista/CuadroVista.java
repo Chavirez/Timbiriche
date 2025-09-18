@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.timbiricheatt;
+package Vista;
 
+import Modelo.CuadroModelo;
+import Modelo.Interfaces.CuadroListener;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
@@ -16,10 +18,10 @@ import javax.swing.SwingUtilities;
  *
  * @author santi
  */
-public class Cuadro extends javax.swing.JPanel {
+public class CuadroVista extends javax.swing.JPanel {
 
     public int num;
-    public CuadrosListener listener;
+    public CuadroListener listener;
     public boolean der = false;
     public boolean izq = false;
     public boolean arriba = false;
@@ -31,22 +33,22 @@ public class Cuadro extends javax.swing.JPanel {
     /**
      * Creates new form Cuadros
      */
-    public Cuadro(int num) {
+    public CuadroVista(int num) {
 
         this.num = num;
         initComponents();
         
-       
-
     }
-    
-    public Cuadro(CuadrosListener listener, int num) {
 
+    public CuadroListener getListener() {
+        return listener;
+    }
+
+    public void setListener(CuadroListener listener) {
         this.listener = listener;
-        this.num = num;
-        initComponents();
-
     }
+
+    
 
     private void renderizarCuadro(ImageIcon icono){
         
@@ -131,14 +133,6 @@ public class Cuadro extends javax.swing.JPanel {
         this.num = num;
     }
 
-    public CuadrosListener getListener() {
-        return listener;
-    }
-
-    public void setListener(CuadrosListener listener) {
-        this.listener = listener;
-    }
-    
     
     private void btnIzqSupComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnIzqSupComponentResized
 
@@ -166,21 +160,24 @@ public class Cuadro extends javax.swing.JPanel {
 
         int min = Math.min(Math.min(distLeft, distRight), Math.min(distTop, distBottom));
 
-        String donde = "valioverga";
+        int donde = 0;
         if (min == distLeft) {
-            donde = "izq";
+            donde = 1;
             this.izq = true;
         } else if (min == distRight) {
-            donde = "der";
+            donde = 2;
             this.der = true;
         } else if (min == distTop) {
-            donde = "arriba";
+            donde = 3;
             this.arriba = true;
         } else {
-            donde = "abajo";
+            donde = 4;
             this.abajo = true;
         }
-        System.out.println("Me picaron en " + donde + ", soy = " + num);
+
+        if (listener != null) {
+            listener.bordeSeleccionado(num, donde);
+        }
     }//GEN-LAST:event_btnIzqSupMouseClicked
 
     private void btnIzqSupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIzqSupMouseExited

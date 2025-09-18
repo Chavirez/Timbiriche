@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.timbiricheatt;
+package Vista;
 
+import Modelo.*;
+import Objetos.Jugador;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author santi
  */
-public class pnlJugador extends javax.swing.JPanel {
+public class JugadorVista extends javax.swing.JPanel {
 
     /**
      * Creates new form pnlJugador
      */
-    public pnlJugador() {
+    public JugadorVista() {
         initComponents();
         this.setSize(400, 100);
         lblAvatar.setVisible(false);

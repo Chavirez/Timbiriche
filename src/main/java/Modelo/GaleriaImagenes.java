@@ -1,4 +1,4 @@
-package com.mycompany.timbiricheatt;
+package Modelo;
 
 import javax.swing.*;
 import java.awt.*;

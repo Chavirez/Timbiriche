@@ -4,6 +4,8 @@
  */
 package com.mycompany.timbiricheatt;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author santi
@@ -15,6 +17,7 @@ public class pnlJugador extends javax.swing.JPanel {
      */
     public pnlJugador() {
         initComponents();
+        this.setSize(400, 100);
         lblAvatar.setVisible(false);
         lblNombre.setVisible(false);
         pnlColor.setVisible(false);
@@ -34,41 +37,86 @@ public class pnlJugador extends javax.swing.JPanel {
         lblNombre = new javax.swing.JLabel();
         pnlColor = new javax.swing.JPanel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         btnCrear.setText("Crear Jugador");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
             }
         });
-        add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
-
-        lblAvatar.setText("jLabel1");
-        add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         lblNombre.setText("jLabel1");
-        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
         javax.swing.GroupLayout pnlColorLayout = new javax.swing.GroupLayout(pnlColor);
         pnlColor.setLayout(pnlColorLayout);
         pnlColorLayout.setHorizontalGroup(
             pnlColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
         pnlColorLayout.setVerticalGroup(
             pnlColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 49, Short.MAX_VALUE)
         );
 
-        add(pnlColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrear)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblNombre)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(pnlColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCrear)
+                        .addComponent(lblNombre))
+                    .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
-        frmJugadorConfiguracion frm = new frmJugadorConfiguracion();
-        
-        frm.setVisible(true);
+        pnlJugadorConfiguracion panel = new pnlJugadorConfiguracion();
+       
+
+        int result = JOptionPane.showConfirmDialog(
+                null,
+                panel,
+                "Configurar Jugador",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            Jugador jugador = panel.getJugador();
+            System.out.println("Jugador configurado: " + jugador);
+            
+            btnCrear.setVisible(false);
+            
+            lblAvatar.setIcon(jugador.getAvatar());
+            lblAvatar.setVisible(true);
+            lblNombre.setText(jugador.getNombre());
+            lblNombre.setVisible(true);
+            pnlColor.setBackground(jugador.getColor());
+            pnlColor.setVisible(true);
+            
+            
+        }
+
     }//GEN-LAST:event_btnCrearActionPerformed
 
 

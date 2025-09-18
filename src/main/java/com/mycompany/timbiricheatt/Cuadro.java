@@ -19,7 +19,7 @@ import javax.swing.SwingUtilities;
 public class Cuadro extends javax.swing.JPanel {
 
     public int num;
-    public CuadroListener listener;
+    public CuadrosListener listener;
     public boolean der = false;
     public boolean izq = false;
     public boolean arriba = false;
@@ -40,7 +40,7 @@ public class Cuadro extends javax.swing.JPanel {
 
     }
     
-    public Cuadro(CuadroListener listener, int num) {
+    public Cuadro(CuadrosListener listener, int num) {
 
         this.listener = listener;
         this.num = num;
@@ -131,11 +131,11 @@ public class Cuadro extends javax.swing.JPanel {
         this.num = num;
     }
 
-    public CuadroListener getListener() {
+    public CuadrosListener getListener() {
         return listener;
     }
 
-    public void setListener(CuadroListener listener) {
+    public void setListener(CuadrosListener listener) {
         this.listener = listener;
     }
     

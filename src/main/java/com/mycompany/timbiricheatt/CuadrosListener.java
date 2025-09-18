@@ -8,9 +8,9 @@ package com.mycompany.timbiricheatt;
  *
  * @author santi
  */
-public class CuadroListener {
+public class CuadrosListener {
     
-    public CuadroListener() {
+    public CuadrosListener() {
     }
     
     

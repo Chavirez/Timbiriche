@@ -10,11 +10,11 @@ import java.util.List;
  *
  * @author santi
  */
-public class JugadorControl {
+public class JugadoresListener {
     
     public List<Jugador> jugadores;
 
-    public JugadorControl() {
+    public JugadoresListener() {
     }
 
     public List<Jugador> getJugadores() {

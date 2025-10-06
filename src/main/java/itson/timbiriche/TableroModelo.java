@@ -18,7 +18,7 @@ import itson.timbiriche.ModeloListener;
  * Utiliza el patrón "Observer" (Oyente/Listener) para notificar a quien esté
  * interesado (como el `PanelPrincipal`) cada vez que su estado cambia.
  */
-public class TableroModelo {
+public class TableroModelo implements IModeloJuego {
     private final int tamaño; // Número de puntos por lado (ej. 5 para un tablero de 4x4)
     // Matrices que guardan el ID del jugador que dibujó cada línea. 0 si no hay línea.
     private final int[][] lineasHorizontales;

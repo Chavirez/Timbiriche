@@ -14,7 +14,7 @@ import java.awt.*;
  */
 public class PanelLateral extends JPanel {
     /** El modelo de datos del tablero, que contiene el estado del juego. */
-    private final TableroModelo modelo;
+    private final IModeloJuego modelo;
     /** Un arreglo de etiquetas (JLabel) para mostrar los puntajes de los jugadores. */
     private final JLabel[] labelsPuntajes;
 
@@ -27,7 +27,7 @@ public class PanelLateral extends JPanel {
      * @param modelo El modelo de datos del juego ({@link TableroModelo}) del cual
      * se obtiene la información de los jugadores y puntajes.
      */
-    public PanelLateral(TableroModelo modelo) {
+    public PanelLateral(IModeloJuego modelo) {
         this.modelo = modelo;
         this.labelsPuntajes = new JLabel[modelo.getJugadores().size()];
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

@@ -158,5 +158,16 @@ public class Recursos {
             System.err.println("Error al cargar avatar desde " + resourcePath + ": " + e.getMessage());
         }
         return null; // Devuelve null si no se puede cargar la imagen
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }

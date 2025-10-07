@@ -16,10 +16,7 @@ import java.util.stream.Collectors;
  */
 public class PanelPrincipal extends JPanel implements ModeloListener {
 
-    /**
-     * El modelo de datos del juego, que contiene toda la lógica y el estado.
-     */
-    private final TableroModelo modelo;
+     private final IModeloJuego modelo; 
     /**
      * Etiqueta que muestra el nombre y color del jugador actual o el resultado
      * del juego.
@@ -45,7 +42,7 @@ public class PanelPrincipal extends JPanel implements ModeloListener {
      * @param modelo El {@link TableroModelo} que representa el estado del
      * juego.
      */
-    public PanelPrincipal(TableroModelo modelo) {
+    public PanelPrincipal(IModeloJuego modelo) {
         this.modelo = modelo;
         this.modelo.agregarListener(this); // Se suscribe a los cambios del modelo
         setLayout(new BorderLayout(10, 10));

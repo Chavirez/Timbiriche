@@ -5,7 +5,7 @@ import java.util.Objects;
 
 /**
  * Representa a un jugador en el juego de Timbiriche.
-
+ * <p>
  * Esta es una clase de datos inmutable (récord) que almacena la información
  * esencial de un jugador. La validación en el constructor garantiza la integridad
  * de los datos, asegurando que los campos principales no sean nulos.

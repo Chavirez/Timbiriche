@@ -3,10 +3,21 @@ package itson.timbiriche;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import itson.timbiriche.ModeloListener;
 
-
-public class TableroModelo implements IModeloJuego {
+/**
+ * El corazón del juego. Contiene toda la información sobre el estado actual
+ * de la partida y la lógica para modificarlo.
+ *
+ * - No sabe nada sobre cómo se dibuja el juego (eso es trabajo de la Vista).
+ * - No sabe nada sobre clics del mouse (eso es trabajo del Controlador).
+ *
+ * Simplemente mantiene los datos (líneas, cuadrados, puntajes) y ofrece métodos
+ * para que el Controlador los modifique (ej. `agregarLinea`).
+ *
+ * Utiliza el patrón "Observer" (Oyente/Listener) para notificar a quien esté
+ * interesado (como el `PanelPrincipal`) cada vez que su estado cambia.
+ */
+public class TableroModelo {
     private final int tamaño; // Número de puntos por lado (ej. 5 para un tablero de 4x4)
     // Matrices que guardan el ID del jugador que dibujó cada línea. 0 si no hay línea.
     private final int[][] lineasHorizontales;
@@ -74,7 +85,7 @@ public class TableroModelo implements IModeloJuego {
             if (lineasVerticales[fila][col] != 0) return false;
             lineasVerticales[fila][col] = jugadorId;
         }
-        //-----------------Maybe Mock-----------------------------------
+        
         // Después de poner la línea, verifica si se completó algún cuadrado.
         boolean completoCuadrado = verificarCuadrados();
         
@@ -89,8 +100,10 @@ public class TableroModelo implements IModeloJuego {
         return true;
     }
 
-    
-    
+    /**
+     * Revisa todo el tablero en busca de nuevos cuadrados completados.
+     * @return true si se completó al menos un cuadrado en esta jugada.
+     */
     private boolean verificarCuadrados() {
         boolean seCompletoUnCuadrado = false;
         for (int i = 0; i < tamaño - 1; i++) {
@@ -114,4 +127,5 @@ public class TableroModelo implements IModeloJuego {
     // --- Patrón Observer ---
     public void agregarListener(ModeloListener listener) { listeners.add(listener); }
     private void notificarCambios() { for (ModeloListener l : listeners) l.modeloCambiado(); }
+    public interface ModeloListener { void modeloCambiado(); }
 }

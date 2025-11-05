@@ -6,6 +6,9 @@ package itson.timbiriche;
  * Esta clase centraliza valores fijos que definen el tamaño y la apariencia del
  * tablero de juego, como las dimensiones, márgenes y grosores de línea. No está
  * diseñada para ser instanciada.
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class JuegoConfig {
 

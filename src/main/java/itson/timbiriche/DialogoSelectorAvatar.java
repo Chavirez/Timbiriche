@@ -9,6 +9,8 @@ import java.util.Set;
  * Representa un cuadro de diálogo modal que permite al usuario seleccionar un avatar
  * de una lista de opciones disponibles. El diálogo deshabilita los avatares que ya 
  * están siendo utilizados por otros jugadores para asegurar que cada jugador tenga un avatar único.
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class DialogoSelectorAvatar extends JDialog {
     

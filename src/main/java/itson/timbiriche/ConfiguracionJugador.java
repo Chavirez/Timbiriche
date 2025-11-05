@@ -6,6 +6,8 @@ import java.awt.Color;
  * Representa la configuración de un jugador, incluyendo su nombre, avatar y color.
  * Esta clase funciona como un objeto de transferencia de datos (DTO) para encapsular
  * las preferencias y la identificación de un jugador en la partida.
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class ConfiguracionJugador {
 

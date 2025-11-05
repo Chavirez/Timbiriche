@@ -13,6 +13,9 @@ import java.util.stream.Collectors;
  * Este panel permite al usuario establecer un nombre, seleccionar un avatar de una
  * lista (evitando duplicados con otros jugadores) y elegir un color. Está diseñado
  * para ser reutilizable y mostrarse dentro de una ventana de configuración de partida.
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class PanelConfiguracionJugador extends JPanel {
 

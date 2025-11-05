@@ -24,7 +24,9 @@ import javax.swing.ImageIcon;
  * Proporciona métodos estáticos para cargar imágenes de avatares, listar colores
  * predefinidos y escanear el classpath en busca de archivos de avatar. Esta clase
  * no está diseñada para ser instanciada.
-
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class Recursos {
 
@@ -158,16 +160,5 @@ public class Recursos {
             System.err.println("Error al cargar avatar desde " + resourcePath + ": " + e.getMessage());
         }
         return null; // Devuelve null si no se puede cargar la imagen
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 }

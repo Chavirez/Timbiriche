@@ -10,11 +10,13 @@ import java.awt.*;
  * avatar, nombre y puntaje actual. También contiene un botón para salir de la aplicación.
  * El panel se actualiza a través del método {@link #actualizarUI()} para reflejar
  * los cambios en el estado del juego.
-
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class PanelLateral extends JPanel {
     /** El modelo de datos del tablero, que contiene el estado del juego. */
-    private final IModeloJuego modelo;
+    private final TableroModelo modelo;
     /** Un arreglo de etiquetas (JLabel) para mostrar los puntajes de los jugadores. */
     private final JLabel[] labelsPuntajes;
 
@@ -27,7 +29,7 @@ public class PanelLateral extends JPanel {
      * @param modelo El modelo de datos del juego ({@link TableroModelo}) del cual
      * se obtiene la información de los jugadores y puntajes.
      */
-    public PanelLateral(IModeloJuego modelo) {
+    public PanelLateral(TableroModelo modelo) {
         this.modelo = modelo;
         this.labelsPuntajes = new JLabel[modelo.getJugadores().size()];
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

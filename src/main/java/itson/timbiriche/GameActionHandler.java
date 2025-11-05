@@ -16,4 +16,7 @@ public interface GameActionHandler {
      */
     void placeLine(int fila, int col, boolean horizontal);
 
+    // Aquí se podrían añadir otras acciones del juego, como iniciar una nueva partida, etc.
+    // void startGame();
+    // void sendChatMessage(String message);
 }

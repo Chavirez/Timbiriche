@@ -12,11 +12,16 @@ import java.util.stream.Collectors;
  * información del jugador y la etiqueta de turno. Implementa
  * {@link TableroModelo.ModeloListener} para escuchar cambios en el estado del
  * juego y actualizar la vista en consecuencia.
-
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
-public class PanelPrincipal extends JPanel implements ModeloListener {
+public class PanelPrincipal extends JPanel implements TableroModelo.ModeloListener {
 
-     private final IModeloJuego modelo; 
+    /**
+     * El modelo de datos del juego, que contiene toda la lógica y el estado.
+     */
+    private final TableroModelo modelo;
     /**
      * Etiqueta que muestra el nombre y color del jugador actual o el resultado
      * del juego.
@@ -42,7 +47,7 @@ public class PanelPrincipal extends JPanel implements ModeloListener {
      * @param modelo El {@link TableroModelo} que representa el estado del
      * juego.
      */
-    public PanelPrincipal(IModeloJuego modelo) {
+    public PanelPrincipal(TableroModelo modelo) {
         this.modelo = modelo;
         this.modelo.agregarListener(this); // Se suscribe a los cambios del modelo
         setLayout(new BorderLayout(10, 10));

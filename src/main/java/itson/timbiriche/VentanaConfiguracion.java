@@ -16,7 +16,9 @@ import java.util.stream.IntStream;
  * Esta ventana permite a los usuarios establecer el nombre, avatar y color para
  * cada jugador. Además, realiza validaciones para asegurar que no haya nombres,
  * avatares o colores duplicados entre los jugadores.
-
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
  */
 public class VentanaConfiguracion extends JDialog {
 

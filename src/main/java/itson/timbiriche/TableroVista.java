@@ -5,10 +5,23 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
+/**
+ * Un componente de panel (JPanel) que representa la vista visual del tablero de Timbiriche.
+ * <p>
+ * Sus responsabilidades principales son:
+ * 1. Dibujar el estado actual del juego (puntos, líneas, cuadros) basándose en los datos del {@link TableroModelo}.
+ * 2. Capturar los clics del ratón del usuario, traducirlos a coordenadas del tablero y notificar
+ * a un oyente (el controlador) sobre el intento de colocar una línea.
+ * <p>
+ * Como la 'Vista' en el patrón MVC, este componente no contiene lógica de juego.
+ *
+ * @author [Tu Nombre/Equipo]
+ * @version 1.0
+ */
 public class TableroVista extends JPanel {
 
-    private final IModeloJuego modelo; 
+    /** El modelo de datos del juego, utilizado para saber qué dibujar. */
+    private final TableroModelo modelo;
     /** Almacena el primer punto que un jugador selecciona al intentar trazar una línea. */
     private Point primerPunto = null;
     /** El oyente (normalmente el controlador) que será notificado de las acciones del usuario. */
@@ -20,11 +33,20 @@ public class TableroVista extends JPanel {
      */
     @FunctionalInterface
     public interface PlayerInteractionListener {
-        
+        /**
+         * Se llama cuando el jugador ha hecho clic en dos puntos adyacentes,
+         * indicando su intención de dibujar una línea.
+         * @param fila Fila de la línea.
+         * @param col Columna de la línea.
+         * @param horizontal Verdadero si la línea es horizontal, falso si es vertical.
+         */
         void onLineAttempted(int fila, int col, boolean horizontal);
     }
 
-    
+    /**
+     * Establece el oyente que recibirá las notificaciones de las acciones del jugador.
+     * @param listener El oyente (controlador) a notificar.
+     */
     public void setPlayerInteractionListener(PlayerInteractionListener listener) {
         this.interactionListener = listener;
     }
@@ -33,7 +55,7 @@ public class TableroVista extends JPanel {
      * Construye la vista del tablero de juego.
      * @param modelo El modelo de datos del juego que esta vista representará.
      */
-    public TableroVista(IModeloJuego modelo) {
+    public TableroVista(TableroModelo modelo) {
         this.modelo = modelo;
         setBackground(Color.WHITE);
         addMouseListener(new MouseAdapter() {
@@ -73,7 +95,12 @@ public class TableroVista extends JPanel {
         repaint();
     }
 
-    
+    /**
+     * Comprueba si dos puntos en la cuadrícula son adyacentes (no en diagonal).
+     * @param p1 El primer punto.
+     * @param p2 El segundo punto.
+     * @return {@code true} si los puntos son adyacentes, {@code false} en caso contrario.
+     */
     private boolean sonAdyacentes(Point p1, Point p2) {
         return (Math.abs(p1.x - p2.x) == 1 && p1.y == p2.y) || (Math.abs(p1.y - p2.y) == 1 && p1.x == p2.x);
     }
